@@ -1,0 +1,6 @@
+<h1>{{ scenariolist.name }}</h1>
+<ul>
+{% for scenario in scenariolist.scenario_set.all %}
+    <li>{{ scenario.text }}</li>
+{% endfor %}
+</ul>
