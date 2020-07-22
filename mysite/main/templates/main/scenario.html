@@ -1,6 +1,22 @@
-<h1>{{ scenariolist.name }}</h1>
+<!-- <h1>{{ scenariolist.name }}</h1>
 <ul>
 {% for scenario in scenariolist.scenario_set.all %}
     <li>{{ scenario.text }}</li>
 {% endfor %}
-</ul>
+</ul> -->
+
+{% extends "main/base.html" %}
+{% block title %}Scenario List{% endblock %}
+
+{% block content %}
+	<h1>{{scenario_list.name}}</h1>
+	<ul>
+		{% for scenario in scenario_list.scenario_set.all %}
+			{% if scenario.complete == True %}
+				<li>{{scenario.text}} - COMPLETE</li>
+			{% else %}
+				<li>{{scenario.text}} - INCOMPLETE</li>
+			{% endif %}
+		{% endfor %}
+	</ul>
+{% endblock %}
