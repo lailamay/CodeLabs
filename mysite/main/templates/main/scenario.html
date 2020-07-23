@@ -4,13 +4,19 @@
 
 {% block content %}
 	<h1>{{scenario_list.name}}</h1>
-	<ul>
-		{% for scenario in scenario_list.scenario_set.all %}
-			{% if scenario.complete == True %}
-				<li>{{scenario.text}} - COMPLETE</li>
-			{% else %}
-				<li>{{scenario.text}} - INCOMPLETE</li>
-			{% endif %}
-		{% endfor %}
-	</ul>
+	<form method="post" action="#">
+		{% csrf_token %}
+		<ul>
+			{% for scenario in scenario_list.scenario_set.all %}
+				{% if scenario.complete == True %}
+					<li><input type="checkbox", value="clicked", name="c{{scenario.id}}" checked>{{scenario.text}}</li>
+				{% else %}
+					<li><input type="checkbox", value="clicked", name="c{{scenario.id}}">{{scenario.text}}</li>
+				{% endif %}
+			{% endfor %}
+		</ul>
+		<button type="submit", name="save", value="save">Save</button>
+		<input type="text", name="newScenario">
+		<button type="submit", name="newScenario", value="newScenario">Add Scenario</button>
+	</form>
 {% endblock %}
