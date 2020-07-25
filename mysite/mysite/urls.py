@@ -15,10 +15,13 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path, include
+from register import views as v
 
 #We're taking everything after the string in the path and looking
 #for that in the views.py by adding include
 urlpatterns = [
     path('admin/', admin.site.urls),
+    path("register/", v.register, name="register"),
     path('', include('main.urls')),
+    path('', include("django.contrib.auth.urls")),
 ]
