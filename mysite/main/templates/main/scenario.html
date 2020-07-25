@@ -1,22 +1,35 @@
 
 {% extends "main/base.html" %}
+
 {% block title %}Scenario List{% endblock %}
 
 {% block content %}
 	<h1>{{scenario_list.name}}</h1>
 	<form method="post" action="#">
 		{% csrf_token %}
-		<ul>
-			{% for scenario in scenario_list.scenario_set.all %}
-				{% if scenario.complete == True %}
-					<li><input type="checkbox", value="clicked", name="c{{scenario.id}}" checked>{{scenario.text}}</li>
-				{% else %}
-					<li><input type="checkbox", value="clicked", name="c{{scenario.id}}">{{scenario.text}}</li>
-				{% endif %}
-			{% endfor %}
-		</ul>
-		<button type="submit", name="save", value="save">Save</button>
-		<input type="text", name="newScenario">
-		<button type="submit", name="newScenario", value="newScenario">Add Scenario</button>
+		{% for scenario in scenario_list.scenario_set.all %}
+		<div class="input-group mb-3">
+			<div class="input-group-prepend">
+				<div class="input-group-text">
+					{% if scenario.complete == True %}
+						<input type="checkbox", value="clicked", name="c{{scenario.id}}" checked>
+					{% else %}
+						<input type="checkbox", value="clicked", name="c{{scenario.id}}">
+					{% endif %}
+				</div>
+			</div>
+			<input type="text", value="{{scenario.text}}" class="form-control">
+		</div>
+		{% endfor %}
+		
+		<div class="input-group mb-3">
+			<div class="input-group-prepend">
+				<button type="submit", name="newScenario", value="newScenario", class="btn btn-success">Add Scenario</button>
+			</div>
+			<input type="text", name="newScenario">
+		</div>
+
+		<button type="submit", name="save", value="save", class="btn btn-success">Save</button>
 	</form>
+	
 {% endblock %}
