@@ -3,5 +3,16 @@ h2 {
 }
 
 body {
-    background: white url("images/budget.gif") no-repeat;
+    background-color: white url("images/budget.gif") no-repeat;
+    background-image: url("images/money.gif");
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 100%;
+}
+
+h1, h2 {
+    font-weight: normal;
+    margin:0;
+    width: 100%;
 }
