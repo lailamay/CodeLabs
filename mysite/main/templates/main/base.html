@@ -1,42 +1,65 @@
-<!doctype html>
+<!DOCTYPE HTML>
+{% load static %}
 <html>
 <head>
     <style type="text/css">
-        .sidenav {
-            height:100%;
-            width:170px;
-            position: fixed;
-            z-index:1;
-            top:0;
-            Left:0;
-            background-color:#111;
-            overflow-x: hidden;
-            padding-top:40px;
-
+        .main{
+            height: 100%;
+            background-color: #f2f2f2;
         }
 
-        .sidenav a {
-            padding:6px 8px 6px 16px;
-            text-decoration: none;
-            font-size:25px;
+        #content{
+            padding-top: 20px;    
+        }
+
+        .navbar {
+            height:100%;
+            display: flex;
+            justify-content: space-between;
+            border-bottom: 1px solid;
+        }
+
+        .navbar a {
+            padding: 10px;
+            display: block;
+        }
+
+        .navbar a:hover{
+            color:#818181;
+        }
+
+        .sidebar{
+            height: 100%; /* Full-height: remove this if you want "auto" height */
+            width: 160px; /* Set the width of the sidebar */
+            position: fixed; /* Fixed Sidebar (stay in place on scroll) */
+            overflow-x: hidden; /* Disable horizontal scroll */
+            overflow-y: hidden;
+            padding-left: 2%;
+            padding-top: 20px;
+        }
+        
+        .sidebar a {
             color: #818181;
             display: block;
         }
 
-        .sidenav a:hover{
+        .sidebar a:hover{
             color:#f1f1f1;
         }
 
-        .main {
-            margin-Left:160px;
-            padding: 0px 10px;
+        img{
+            height: 75px;
         }
 
-        #im {
-            display: block;
-            margin-left: auto;
-            margin-right: auto;
-            width: 50%;
+        .login-button{
+            border: 1px solid;
+            width: 100px;
+            box-shadow: none;
+            background: #000000;
+        }
+
+        .login{
+            color: #ffffff;
         }
     </style>
 
@@ -45,31 +68,30 @@
 
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 
-
-
     <title>{% block title %}Finance Management App{% endblock %}</title>
 </head>
 
-<body>
-    <div class="sidenav">
-        <a href="/">Home</a>
-        <a href="/create">Create</a>
-        <a href="/1">Scenario List</a>
-        <a href="/register">Register</a>
+<body style="background-color:#f2f2f2;">
+    <div class="navbar">
+        <a href="/"><img src = "{% static 'main\images\logo.png' %}" alt = "Logo"></a>
+        <button class = "login-button"> <a class = "login" href ="/login"> Login </a></button>
+    </div>
+
+    <div class = "main">
+    <div class = "sidebar">
+        <a href="/create">Create</a> 
+        <br>
+        <a href="/1">Scenario Lists</a>
     </div>
 
     <!-- Page content -->
-    <div class="main">
-        <div class="row justify-content-center">
-            <div class="col-8">
-                <h1 class="mt-2">Budget Scenarios</h1>
-                <hr class="mt-0 mb-4">
-                {% block content %}
-                {% endblock %}
-            </div>
+    <div id = "content" class="row justify-content-center">
+        <div class="col-8">
+            <h1>Budget Scenarios</h1>
+            {% block content %}
+            {% endblock %}
         </div>
-    </div>
-
+        </div>
     </div>
 
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
