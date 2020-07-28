@@ -18,13 +18,10 @@ class Scenario(models.Model):
         return self.text
 
 
-class Meta(AbstractUser.Meta):
-        swappable = 'AUTH_USER_MODEL'
-
 
 class User(AbstractUser):
-    is_student = models.BooleanField()
-    is_teacher = models.BooleanField()
+    is_student = models.BooleanField(null=True)
+    is_teacher = models.BooleanField(null=True)
 
     def __str__(self):
         return self.username
