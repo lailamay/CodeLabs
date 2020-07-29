@@ -5,6 +5,7 @@
 
 {% block content %}
 	<h1>{{scenario_list.name}}</h1>
+	<h5> Choose the scenario(s) you believe you need help with at the moment. </h5>
 	<form method="post" action="#">
 		{% csrf_token %}
 		{% for scenario in scenario_list.scenario_set.all %}
