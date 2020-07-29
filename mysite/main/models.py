@@ -22,8 +22,8 @@ class Scenario(models.Model):
 
 
 class User(AbstractUser):
-    is_student = models.BooleanField(null=True)
-    is_teacher = models.BooleanField(null=True)
+    is_student = models.BooleanField(default=False)
+    is_teacher = models.BooleanField(default=False)
 
     def __str__(self):
         return self.username
