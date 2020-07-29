@@ -1,6 +1,7 @@
 from django.db import models
 from django.contrib.auth.models import AbstractUser
 
+
 class ScenarioList(models.Model):
     name = models.CharField(max_length=200)
 
@@ -13,6 +14,7 @@ class Scenario(models.Model):
     scenariolist = models.ForeignKey(ScenarioList, on_delete=models.CASCADE)
     text = models.CharField(max_length=300)
     complete = models.BooleanField()
+    answer = models.CharField(max_length=500, default="")
 
     def __str__(self):
         return self.text

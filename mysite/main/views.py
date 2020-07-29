@@ -37,6 +37,7 @@ def home(response):
 	return render(response, "main/home.html", {})
 
 
+
 def create(response):
     response.user
     if response.method == "POST":
@@ -58,9 +59,5 @@ def create(response):
 #     return render(response, 'main/scenario.html',  {'scenario_list': scenario_list})
 
 
-# def student(response, scenariolist_id):
-#     try:
-#         scenario_list = ScenarioList.objects.get(pk=scenariolist_id)
-#     except ScenarioList.DoesNotExist:
-#         raise Http404("Scenario does not exist")
-#     return render(response, 'main/student.html', {'scenario_list': scenario_list})
+def student(response):
+     return render(response, 'main/student.html', {})

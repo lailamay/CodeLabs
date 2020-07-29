@@ -1,7 +1,5 @@
 # CodeLabs
 
-Hello! 
-
 Project Information
 
 Project Description
