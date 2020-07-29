@@ -1,5 +1,8 @@
 {% extends 'main/base.html' %}
+{% load static %}
+
 {% block title %} Create New List {% endblock %}
+
 {% block content %}
      <h3>Create Page</h3>
      <form method="post" action="/create/" class="form-group">
@@ -10,4 +13,5 @@
              </div>{{form.name}}
          </div>
     </form>
+    <link rel="stylesheet" type="text/css" href="{% static 'main/style.css' %}">
 {% endblock %}
