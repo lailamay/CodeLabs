@@ -7,6 +7,6 @@ urlpatterns = [
     path("<int:id>/", views.index, name='index'),
     path("", views.home, name='home'),
     path("create/", views.create, name="create"),
-    path("student/", views.student, name='student page'),
+    path("student/", views.IndexView.as_view(), name='student'),
     #path('<int:scenariolist_id>/', views.scenario, name='scenarios')
 ]
