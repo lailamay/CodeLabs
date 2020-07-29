@@ -3,12 +3,12 @@ h2 {
 }
 
 body {
-    background-color: white url("images/budget.gif") no-repeat;
-    background-image: url("images/money.gif");
+    /*background-color: white url("images/budget.gif") no-repeat;
+    background-image: url("images/money.gif"); *? */
     display: block;
     margin-left: auto;
     margin-right: auto;
-    width: 100%;
+    width: 100%; 
 }
 
 h1, h2 {
