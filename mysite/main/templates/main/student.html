@@ -6,13 +6,22 @@ Student Page
 {% endblock %}
 
 {% block content %}
-<h2><b>Hi Students!</b></h2>
+<h2> Student Page </h2>
 <br>
-<h5>Here are the scenario(s) you saved from the list. </h5>
+<h5>Here are the scenarios you saved. </h5>
 
-<h5>Here is just one way to think about the scenario at hand.</h5>
+{% for scenario in scenario_list %}
+    {% if scenario.complete == True %}
+    <li> {{ scenario.text }} </li>
+{% endif %}
+{% endfor %}
+<br>
 
-<h5>Can you come up with more ways to tackle this real life finance scenario?</h5>
+<h5>Here is your custom help for the issues.</h5>
 
-<link rel="stylesheet" type="text/css" href="{% static 'main/style.css' %}">
+{% for scenario in scenario_list %}
+    {% if scenario.complete == True %}
+        <li> {{ scenario.answer }} </li>
+{% endif %}
+{% endfor %}
 {% endblock %}
