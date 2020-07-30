@@ -1,13 +1,15 @@
 from django.shortcuts import get_object_or_404, render
 from django.http import HttpResponse, HttpResponseRedirect
 from django.template import loader
-from .models import ScenarioList, Scenario
+from .models import ScenarioList, Scenario, User
 from .forms import CreateNewList
+from django.views import generic
+
 
 #This is where we put what we want to show on our app
 
 def index(response, id):
-    #scenario_list = ScenarioList.objects.all()
+    
     scenario_list = ScenarioList.objects.get(id=id)
 
     if response.method == "POST":
@@ -58,6 +60,20 @@ def create(response):
 #     scenario_list = get_object_or_404(ScenarioList, pk= scenariolist_id)
 #     return render(response, 'main/scenario.html',  {'scenario_list': scenario_list})
 
+class IndexView(generic.ListView):
+    model = Scenario
+    template_name = 'main/student.html'
+
+    def get_scenariotext(self):
+        return Scenario.text
+    
+    def get_scenarioans(self):
+        return Scenario.answer
+
+class DetailView(generic.DetailView):
+    model = Scenario
+
 
 def student(response):
-     return render(response, 'main/student.html', {})
+    return render(response, 'main/student.html', {})
+
