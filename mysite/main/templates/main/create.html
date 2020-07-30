@@ -9,6 +9,7 @@
 <p>User: {{ user.is_student }} logged in.</p>
     <p>Your account doesn't have access to this page. To proceed,
     please login with an account that has access.</p>
+    <a href="{% url 'login' %}">login</a> 
 {% else %}
     <p>Please login to see this page.</p>
 {% endif %}
@@ -22,5 +23,5 @@
              </div>{{form.name}}
          </div>
     </form>
-    <link rel="stylesheet" type="text/css" href="{% static 'main/style.css' %}">
+   <!-- <link rel="stylesheet" type="text/css" href="{% static 'main/style.css' %}">-->
 {% endblock %}
