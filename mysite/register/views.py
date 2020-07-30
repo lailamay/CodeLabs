@@ -6,10 +6,16 @@ from .forms import RegisterForm
 def register(response):
     if response.method == "POST":
         form = RegisterForm(response.POST)
+        print(form.is_valid())
         if form.is_valid():
+            print('I love kitty')
             form.save()
+            print('It will be okay')
+           
             
         return redirect("/")
+        
     else:
         form = RegisterForm()
+    print('testing testing 123')
     return render(response, "register/register.html", {"form":form})
