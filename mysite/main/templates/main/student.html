@@ -6,9 +6,73 @@ Student Page
 {% endblock %}
 
 {% block content %}
-<h2> Your student page: </h2>
-<br>
-<h5>Here are the scenarios you saved. </h5>
-<br>
-<h5>Here is your custom help for the issues.</h5>
+<style>
+    .image{
+            width: 450px;
+            height: 250px;
+            left: 715px;
+            top: 110px;
+
+            background: #FFFFFF;
+            border: 1px solid #000000;
+            box-sizing: border-box;
+            border-radius: 4px;
+
+            margin-bottom: 50px;
+            margin-top: 20px;
+            margin-left: 30px;
+        }
+
+    .outer-border{
+        position: absolute;
+        width: 450px;
+        height: 250px;
+        left: 450px;
+        top: 15px;
+
+        background-color: #EAF7FF;;
+        border: 1px solid #000000;
+        box-sizing: border-box;
+        border-radius: 4px;
+    }
+
+    .scenarios{
+        margin-top: 20%;
+        background-color: #EAF7FF;;
+        border: 1px solid #000000;
+        box-sizing: border-box;
+        border-radius: 4px;
+        padding: 10px;
+    }
+
+    .help{
+        background-color: #B6F3E5;
+        border: 1px solid #000000;
+        box-sizing: border-box;
+        border-radius: 4px;
+        padding: 10px;
+        margin-top: 10px;
+    }
+</style>
+
+    <div style = "padding-top: 100px;">
+    <h1> <strong> Welcome Students! </strong> </h1>
+    <h5> Meet your personal dashboard :) </h5>
+    <div>
+
+    <div class = "outer-border">
+        <div class = "image">
+            <button style = "background-color: #E3AB99; position: absolute; width: 12px; height: 12px; left: 35px; top: 25px; border: 1px solid #000000; border-radius: 100%;"> </button>
+            <button style = "background-color: #F8F3C5; position: absolute; width: 12px; height: 12px; left: 50px; top: 25px; border: 1px solid #000000; border-radius: 100%;"> </button>
+            <button style = "background-color: #ADE399; position: absolute; width: 12px; height: 12px; left: 65px; top: 25px; border: 1px solid #000000; border-radius: 100%;"> </button>
+            <img style = "width: 450px; height: 260px; object-fit: cover; padding: 20px;" src = "{% static 'main\images\money.gif' %}" alt = "Budgeting Graphic">
+        </div>
+    </div>
+<div class = "scenarios">
+<h5> <strong> Saved Scenarios </strong> </h5>
+</div>
+
+<div class = "help">
+<h5> <strong> Answers </strong> </h5>
+</div> 
 {% endblock %}
