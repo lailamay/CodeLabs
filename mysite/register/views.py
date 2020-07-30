@@ -1,5 +1,5 @@
 from django.shortcuts import render, redirect
-from django.contrib.auth import login, authenticate
+from django.contrib.auth import login, authenticate, logout
 from .forms import RegisterForm
 
 # Create your views here.
@@ -8,11 +8,10 @@ def register(response):
         form = RegisterForm(response.POST)
         print(form.is_valid())
         if form.is_valid():
-            print('I love kitty')
-            form.save()
-            print('It will be okay')
-           
             
+            form.save()
+           
+           
         return redirect("/")
         
     else:
