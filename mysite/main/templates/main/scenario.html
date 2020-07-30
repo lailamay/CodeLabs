@@ -4,7 +4,8 @@
 {% block title %}Scenario List{% endblock %}
 
 {% block content %}
-	<h1>{{scenario_list.name}}</h1>
+	<h1> <strong> View Scenario Lists </strong> </h1>
+	<h2>{{scenario_list.name}}</h2>
 	<form method="post" action="#">
 		{% csrf_token %}
 		{% for scenario in scenario_list.scenario_set.all %}
