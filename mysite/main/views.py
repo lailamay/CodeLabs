@@ -1,13 +1,13 @@
 from django.shortcuts import get_object_or_404, render
 from django.http import HttpResponse, HttpResponseRedirect
 from django.template import loader
-from .models import ScenarioList, Scenario
+from .models import ScenarioList, Scenario, User
 from .forms import CreateNewList
 
 #This is where we put what we want to show on our app
 
 def index(response, id):
-    #scenario_list = ScenarioList.objects.all()
+    
     scenario_list = ScenarioList.objects.get(id=id)
 
     if response.method == "POST":

@@ -1,9 +1,18 @@
 {% extends 'main/base.html' %}
+{% include 'models.py' %}
 {% load static %}
 
 {% block title %} Create New List {% endblock %}
 
 {% block content %}
+{% if user.is_authenticated %}
+<p>User: {{ user.is_student }} logged in.</p>
+    <p>Your account doesn't have access to this page. To proceed,
+    please login with an account that has access.</p>
+{% else %}
+    <p>Please login to see this page.</p>
+{% endif %}
+
      <h3>Create Page</h3>
      <form method="post" action="/create/" class="form-group">
          {% csrf_token %}
