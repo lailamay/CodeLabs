@@ -1,13 +1,31 @@
 {% extends 'main/base.html' %}
+{% include 'models.py' %}
+{% load static %}
+
 {% block title %} Create New List {% endblock %}
+
 {% block content %}
      <h1 style = "padding-bottom: 5px;"> <strong> Create New Scenario List </strong> </h1>
-     <form method="post" action="/create/" class="form-group">
-         {% csrf_token %}
-         <div class="input-group mb-3">
-             <div class="input-group-prepend">
-                 <button type="submit" name="save" class="btn btn-success">Create New List</button>
-             </div>{{form.name}}
-         </div>
-    </form>
+{% if user.is_authenticated %}
+    {% if user.is_student %}
+        <p>Your account doesn't have access to this page. To proceed,
+        Please login with an account that has access.</p>
+        <a href="{% url 'login' %}">login</a> 
+    {% else %}
+        <h3>Create Page</h3>
+        <form method="post" action="/create/" class="form-group">
+            {% csrf_token %}
+            <div class="input-group mb-3">
+                <div class="input-group-prepend">
+                    <button type="submit" name="save" class="btn btn-success">Create New List</button>
+                </div>{{form.name}}
+            </div>
+        </form>
+    {% endif %}    
+{% else %}
+        <a href="{% url 'register' %}"> Please Register First</a>
+      
+{% endif %}
+ 
+
 {% endblock %}

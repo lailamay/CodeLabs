@@ -93,7 +93,14 @@
         <a href="/create">Create</a> 
         <a href="/1">Scenario Lists</a>
         <a href="/student">Student</a>
+        {% if user.is_authenticated %}
+            <a href="/logout">Logout</a>
+        {% else %}
+            <a href="/login">Login</a>
+        {% endif %}
     </div>
+
+
 
     <!-- Page content -->
     <div id = "content" class="row justify-content-center">

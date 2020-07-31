@@ -52,6 +52,7 @@ Student Page
         border-radius: 4px;
         padding: 10px;
         margin-top: 10px;
+        margin-bottom: 100px;
     }
 </style>
 
@@ -70,9 +71,20 @@ Student Page
     </div>
 <div class = "scenarios">
 <h5> <strong> Saved Scenarios </strong> </h5>
+{% for scenario in scenario_list %}
+    {% if scenario.complete == True %}
+    <li style = "margin-left: 20px;"> {{ scenario.text }} </li>
+{% endif %}
+{% endfor %}
 </div>
 
 <div class = "help">
 <h5> <strong> Answers </strong> </h5>
+{% for scenario in scenario_list %}
+    {% if scenario.complete == True %}
+        <li style = "margin-left: 20px;"> {{ scenario.answer }} </li>
+{% endif %}
+{% endfor %}
 </div> 
+
 {% endblock %}

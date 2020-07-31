@@ -1,6 +1,11 @@
 from django.db import models
 from django.contrib.auth.models import AbstractUser
+import logging
 
+logger = logging.getLogger(__name__)
+
+def check_validation_running(val):
+  logger.error('validation run')
 
 class ScenarioList(models.Model):
     name = models.CharField(max_length=200)
@@ -25,8 +30,8 @@ class Meta(AbstractUser.Meta):
 
 
 class User(AbstractUser):
-    is_student = models.BooleanField()
-    is_teacher = models.BooleanField()
+    is_student = models.BooleanField(default=False, validators=[check_validation_running])
+    is_teacher = models.BooleanField(default=False, validators=[check_validation_running])
 
     def __str__(self):
         return self.username

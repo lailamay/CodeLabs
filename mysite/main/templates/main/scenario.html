@@ -4,33 +4,64 @@
 {% block title %}Scenario List{% endblock %}
 
 {% block content %}
-	<h1> <strong> View Scenario Lists </strong> </h1> 
-	<h2 style = "padding-top: 5px;">{{scenario_list.name}}</h2>
-	<form method="post" action="#">
-		{% csrf_token %}
-		{% for scenario in scenario_list.scenario_set.all %}
-		<div class="input-group mb-3">
-			<div class="input-group-prepend">
-				<div class="input-group-text">
-					{% if scenario.complete == True %}
-						<input type="checkbox", value="clicked", name="c{{scenario.id}}" checked>
-					{% else %}
-						<input type="checkbox", value="clicked", name="c{{scenario.id}}">
-					{% endif %}
+	<h1 style = "padding-bottom: 5px;"> <strong> View Scenario Lists </strong> </h1> 
+{% if user.is_authenticated %}
+    {% if user.is_student %}
+		<h1>{{scenario_list.name}}</h1>
+		<form method="post" action="#">
+			{% csrf_token %}
+			{% for scenario in scenario_list.scenario_set.all %}
+			<div class="input-group mb-3">
+				<div class="input-group-prepend">
+					<div class="input-group-text">
+						{% if scenario.complete == True %}
+							<input type="checkbox", value="clicked", name="c{{scenario.id}}" checked>
+						{% else %}
+							<input type="checkbox", value="clicked", name="c{{scenario.id}}">
+						{% endif %}
+					</div>
 				</div>
+				<input type="text", value="{{scenario.text}}" class="form-control">
 			</div>
-			<input type="text", value="{{scenario.text}}" class="form-control">
-		</div>
-		{% endfor %}
-		
-		<div class="input-group mb-3">
-			<div class="input-group-prepend">
-				<button type="submit", name="newScenario", value="newScenario", class="btn btn-success">Add Scenario</button>
+			{% endfor %}
+			<button type="submit", name="save", value="save", class="btn btn-success">Save</button>
+			</form>
+			
+	{% else %}
+		<h1>{{scenario_list.name}}</h1>
+		<form method="post" action="#">
+			{% csrf_token %}
+			{% for scenario in scenario_list.scenario_set.all %}
+			<div class="input-group mb-3">
+				<div class="input-group-prepend">
+					<div class="input-group-text">
+						{% if scenario.complete == True %}
+							<input type="checkbox", value="clicked", name="c{{scenario.id}}" checked>
+						{% else %}
+							<input type="checkbox", value="clicked", name="c{{scenario.id}}">
+						{% endif %}
+					</div>
+				</div>
+				<input type="text", value="{{scenario.text}}" class="form-control">
 			</div>
-			<input type="text", name="newScenario">
-		</div>
+			{% endfor %}
+			
+			<div class="input-group mb-3">
+				<div class="input-group-prepend">
+					<button type="submit", name="newScenario", value="newScenario", class="btn btn-success">Add Scenario</button>
+				</div>
+				<input type="text", name="newScenario">
+			</div>
 
-		<button type="submit", name="save", value="save", class="btn btn-success">Save</button>
-	</form>
-	
+			<button type="submit", name="save", value="save", class="btn btn-success">Save</button>
+		</form>
+			
+		{% endif %}    
+	{% else %}
+			<a href="{% url 'register' %">Please Register First</a>
+
+
+      
+{% endif %}
 {% endblock %}
+	

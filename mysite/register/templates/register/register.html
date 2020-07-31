@@ -1,3 +1,5 @@
+from main.models import .
+
 {% extends "main/base.html" %}
 
 {% block title %}Create an Account{% endblock %}
@@ -9,5 +11,7 @@
         {% csrf_token %}
         {{ form|crispy }}
         <button type="submit" class="btn btn-success"</button>Register</button>
+        
+        
     </form>
 {% endblock %}

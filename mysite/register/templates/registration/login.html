@@ -11,7 +11,15 @@ Login
     <form method="POST" class="form-group">
         {% csrf_token %}
         {{ form|crispy }}
-        <i><p>Don't have an account? Create one <a href="/register">here</a>!</p></i>
+
+        {% if form.errors %}
+            <p>Your username and password didn't match. Please try again.</p>
+        {% endif %}
+  
+        
+        
+
+        <p>Don't have an account? Create one <a href="/register">Here</a></p>
         <button type="submit" class="btn btn-success">Login</button>
     </form>   
 {% endblock %}
