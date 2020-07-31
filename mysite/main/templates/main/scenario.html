@@ -4,7 +4,7 @@
 {% block title %}Scenario List{% endblock %}
 
 {% block content %}
-
+	<h1 style = "padding-bottom: 20px;"> <strong> View Scenario Lists </strong> </h1> 
 {% if user.is_authenticated %}
     {% if user.is_student %}
 		<h1>{{scenario_list.name}}</h1>

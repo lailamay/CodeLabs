@@ -25,6 +25,9 @@ class Scenario(models.Model):
         return self.text
 
 
+class Meta(AbstractUser.Meta):
+        swappable = 'AUTH_USER_MODEL'
+
 
 class User(AbstractUser):
     is_student = models.BooleanField(default=False, validators=[check_validation_running])

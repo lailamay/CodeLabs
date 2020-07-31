@@ -5,7 +5,7 @@
 {% block title %} Create New List {% endblock %}
 
 {% block content %}
-
+     <h1 style = "padding-bottom: 5px;"> <strong> Create New Scenario List </strong> </h1>
 {% if user.is_authenticated %}
     {% if user.is_student %}
         <p>Your account doesn't have access to this page. To proceed,
@@ -23,7 +23,7 @@
         </form>
     {% endif %}    
 {% else %}
-        <a href="{% url 'register' %">Please Register First</a>
+        <a href="{% url 'register' %}"> Please Register First</a>
       
 {% endif %}
  

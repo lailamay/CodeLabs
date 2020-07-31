@@ -43,7 +43,9 @@ INSTALLED_APPS = [
 
 ]
 
-
+AUTH_USER_MODEL = [
+    'main.User'
+]
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
@@ -125,7 +127,7 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 
-
+MEDIA_URL = '/images/'
 
 CRISPY_TEMPLATE_PACK="bootstrap4"
 
