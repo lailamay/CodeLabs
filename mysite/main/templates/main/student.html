@@ -1,0 +1,27 @@
+{% extends 'main/base.html' %}
+{% load static %}
+
+{% block title %}
+Student Page
+{% endblock %}
+
+{% block content %}
+<h2> Student Page </h2>
+<br>
+<h5>Here are the scenarios you saved. </h5>
+
+{% for scenario in scenario_list %}
+    {% if scenario.complete == True %}
+    <li> {{ scenario.text }} </li>
+{% endif %}
+{% endfor %}
+<br>
+
+<h5>Here is your custom help for the issues.</h5>
+
+{% for scenario in scenario_list %}
+    {% if scenario.complete == True %}
+        <li> {{ scenario.answer }} </li>
+{% endif %}
+{% endfor %}
+{% endblock %}
